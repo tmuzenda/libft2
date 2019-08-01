@@ -6,7 +6,7 @@
 /*   By: tmuzenda <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/07/12 13:21:53 by tmuzenda          #+#    #+#             */
-/*   Updated: 2019/07/29 15:04:35 by tmuzenda         ###   ########.fr       */
+/*   Updated: 2019/08/01 15:15:38 by tmuzenda         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -46,5 +46,18 @@ int			ft_isprint(int c);
 int			ft_toupper(int c);
 int			ft_tolower(int c);
 char		*ft_strcpy(char *dst, const char *src);
+void		ft_putchar(char c);
+void		ft_putstr(char const *s);
+void		ft_putchar_fd(char c, int fd);
+void		ft_putstr_fd(char const *s, int fd);
+void		ft_putnbr(int n);
+void		ft_putnbr_fd(int n, int fd);
+void		*ft_memalloc(size_t size);
+void		ft_memdel(void **ap);
+char		*ft_strnew(size_t size);
+void		ft_strdel(char **as);
+void		ft_strclr(char *s);
+void		ft_putendl(char const *s);
+void		ft_putendl_fd(char const *s, int fd);
 
 #endif
