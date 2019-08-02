@@ -6,7 +6,7 @@
 /*   By: tmuzenda <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/07/12 13:21:53 by tmuzenda          #+#    #+#             */
-/*   Updated: 2019/08/01 15:15:38 by tmuzenda         ###   ########.fr       */
+/*   Updated: 2019/08/02 11:52:54 by tmuzenda         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -59,5 +59,9 @@ void		ft_strdel(char **as);
 void		ft_strclr(char *s);
 void		ft_putendl(char const *s);
 void		ft_putendl_fd(char const *s, int fd);
+int			ft_strequ(char const *s1, char const *s2);
+int			ft_strnequ(char const *s1, char const *s2, size_t n);
+char		*ft_strsub(char const *s, unsigned int start, size_t len);
+char		*ft_strjoin(char const *s1, char const *s2);
 
 #endif
