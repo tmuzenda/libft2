@@ -1,28 +1,36 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_memalloc.c                                      :+:      :+:    :+:   */
+/*   ft_itoa.c                                          :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: tmuzenda <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2019/08/01 11:09:22 by tmuzenda          #+#    #+#             */
-/*   Updated: 2019/08/05 15:03:21 by tmuzenda         ###   ########.fr       */
+/*   Created: 2019/08/05 10:22:31 by tmuzenda          #+#    #+#             */
+/*   Updated: 2019/08/06 09:46:31 by tmuzenda         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "libft.h"
 
-void				*ft_memalloc(size_t size)
+char		*ft_itoa(int n)
 {
-	unsigned char	*ptr;
+	char	*ptr;
+	long	tmp;
+	int		length;
 
-	ptr = NULL;
-	if (size)
+	tmp = n;
+	length = (n <= 0 ? 2 : 1);
+	while (n && ++length)
+		n /= 10;
+	if (!(ptr = (char *)malloc(sizeof(char) * length)))
+		return (NULL);
+	ptr[--length] = '\0';
+	if (tmp <= 0)
+		ptr[0] = (tmp < 0 ? '-' : '0');
+	while (tmp)
 	{
-		if (!(ptr = (unsigned char *)malloc(size)))
-			return (NULL);
-		while (size)
-			ptr[--size] = 0;
+		ptr[--length] = (tmp < 0 ? -tmp : tmp) % 10 + '0';
+		tmp /= 10;
 	}
-	return ((void *)ptr);
+	return (ptr);
 }
