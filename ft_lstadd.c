@@ -1,31 +1,19 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_strcmp.c                                        :+:      :+:    :+:   */
+/*   ft_lstadd.c                                        :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: tmuzenda <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2019/07/22 11:39:26 by tmuzenda          #+#    #+#             */
-/*   Updated: 2019/08/08 12:16:27 by tmuzenda         ###   ########.fr       */
+/*   Created: 2019/08/08 09:59:18 by tmuzenda          #+#    #+#             */
+/*   Updated: 2019/08/08 10:10:45 by tmuzenda         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "libft.h"
 
-int					ft_strcmp(const char *s1, const char *s2)
+void	ft_lstadd(t_list **alst, t_list *new)
 {
-	int				i;
-	unsigned char	*str1;
-	unsigned char	*str2;
-
-	i = 0;
-	str1 = (unsigned char *)s1;
-	str2 = (unsigned char *)s2;
-	while (str1[i] == str2[i] && str1[i])
-		i++;
-	if (str1[i] < str2[i])
-		return (-1);
-	if (str1[i] > str2[i])
-		return (1);
-	return (0);
+	new->next = *alst;
+	*alst = new;
 }

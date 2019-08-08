@@ -1,31 +1,23 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_strcmp.c                                        :+:      :+:    :+:   */
+/*   ft_lstmap.c                                        :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: tmuzenda <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2019/07/22 11:39:26 by tmuzenda          #+#    #+#             */
-/*   Updated: 2019/08/08 12:16:27 by tmuzenda         ###   ########.fr       */
+/*   Created: 2019/08/08 10:49:51 by tmuzenda          #+#    #+#             */
+/*   Updated: 2019/08/08 11:15:45 by tmuzenda         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "libft.h"
 
-int					ft_strcmp(const char *s1, const char *s2)
+t_list		*ft_lstmap(t_list *lst, t_list *(*f)(t_list *elem))
 {
-	int				i;
-	unsigned char	*str1;
-	unsigned char	*str2;
+	t_list	*ptr_lst;
 
-	i = 0;
-	str1 = (unsigned char *)s1;
-	str2 = (unsigned char *)s2;
-	while (str1[i] == str2[i] && str1[i])
-		i++;
-	if (str1[i] < str2[i])
-		return (-1);
-	if (str1[i] > str2[i])
-		return (1);
-	return (0);
+	ptr_lst = f(lst);
+	if (lst->next != NULL)
+		ptr_lst->next = ft_lstmap(lst->next, f);
+	return (ptr_lst);
 }

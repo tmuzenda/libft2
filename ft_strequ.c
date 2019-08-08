@@ -6,7 +6,7 @@
 /*   By: tmuzenda <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/08/02 08:59:11 by tmuzenda          #+#    #+#             */
-/*   Updated: 2019/08/02 09:36:59 by tmuzenda         ###   ########.fr       */
+/*   Updated: 2019/08/08 12:17:08 by tmuzenda         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,10 +14,9 @@
 
 int			ft_strequ(char const *s1, char const *s2)
 {
-	size_t	i;
-
-	i = 0;
-	while (s1[i] == s2[i] && s1[i] && s2[i])
-		i++;
-	return (s1[i] == s2[i] ? 1 : 0);
+	if (!s1 || !s2)
+		return (0);
+	if (ft_strcmp(s1, s2) == 0)
+		return (1);
+	return (0);
 }
